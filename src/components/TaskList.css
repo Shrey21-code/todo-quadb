@@ -1,0 +1,18 @@
+/* src/components/TaskList.css */
+.task-list {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .add-task input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  .tasks {
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,48 @@
+
+/* src/components/Navbar.css */
+.navbar {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  box-sizing: border-box;
+  z-index: 1000;
+  }
+  
+  .navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+.navbar-left {
+    flex: 1; /* Allow the left section to take available space */
+  }
+  
+  .navbar-right {
+    flex: 1; /* Allow the right section to take available space */
+    justify-content: flex-end; /* Align items to the right */
+  }
+  .navbar-icon {
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .navbar-logo {
+    height: 30px;
+  }
+  
+  .navbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+  
