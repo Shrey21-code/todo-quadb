@@ -7,17 +7,19 @@ import TaskList from './components/TaskList';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+  const [currentView, setCurrentView] = useState('allTasks');
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  const handleMenuClick = (view) => {
+    setCurrentView(view);
+  };
   return (
     <div className="app">
       <Navbar toggleSidebar={toggleSidebar} />
-      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+       <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Sidebar isOpen={isSidebarOpen} />
-        <TaskList />
+        <TaskList /> 
       </div>
     </div>
   );

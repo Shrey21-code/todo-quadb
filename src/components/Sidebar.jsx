@@ -3,18 +3,18 @@ import React from 'react';
 import { FaTasks, FaCalendarDay, FaStar, FaClipboardList, FaUser, FaPlus } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, onMenuClick }) => {
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <div className="profile">
-        <img src="https://via.placeholder.com/50" alt="Profile" />
+        <img src="https://sm.askmen.com/t/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.1200.jpg" alt="Profile" />
         <div className="profile-info">
           <h2>Hey, ABCD</h2>
         </div>
       </div>
       <div className="menu box">
         <ul>
-          <li><FaTasks /> All Tasks</li>
+        <li onClick={() => onMenuClick('allTasks')}><FaTasks /> All Tasks</li>
           <li><FaCalendarDay /> Today</li>
           <li><FaStar /> Important</li>
           <li><FaClipboardList /> Planned</li>

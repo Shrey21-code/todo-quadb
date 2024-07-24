@@ -28,8 +28,12 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
-
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
