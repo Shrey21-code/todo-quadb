@@ -1,12 +1,13 @@
-/* Common styles */
+/* Common styles */ 
 /* .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-} */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* min-height: 100vh;
+  width: 100%; */
+  /* font-family: Arial, sans-serif; */
+/* } */ 
 
 .theme-toggle {
   position: absolute;
@@ -18,9 +19,10 @@
   cursor: pointer;
 }
 
-/* Light mode styles */
 .light-mode {
-  background-color: #fff;
+  background-color: #FBFDFC;
+  
+  
   color: #000;
 }
 
@@ -29,7 +31,7 @@
   color: #fff;
 }
 
-/* Dark mode styles */
+
 .dark-mode {
   background-color: #333;
   color: #fff;
@@ -39,17 +41,20 @@
   background-color: #fff;
   color: #000;
 }
-/* src/App.css */
+
 .app {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
 }
 
 .main-content {
-  display: flex;
+   display: flex;
   flex: 1;
-  margin-top: 60px;
+ 
+  width: 100%;
+  margin-top: 80px;
 }
 .sidebar-closed .sidebar {
   transform: translateX(-100%);
@@ -61,10 +66,11 @@
 
 .sidebar-open .content {
   margin-left: 250px; /* Adjust this value based on your sidebar width */
-}
+ }
 .sidebar-closed .content {
   margin-left: 0;
-}
+  width: 100vh;
+} 
 .sidebar.closed {
   width: 0;
   padding: 0;
@@ -82,3 +88,37 @@
   transition: width 0.3s ease;
   
 }
+
+
+.task-details {
+  width: 20%;
+  padding: 20px;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+}
+
+.task-details button {
+  margin-bottom: 20px;
+}
+
+.details-open .task-list {
+  transform: translateX(-1%);
+ }
+ /* styles.css */
+body.dark-mode {
+  background-color: #242424;
+  color: #ffffff;
+}
+
+/* Ensure all elements inside body adjust to dark mode */
+.dark-mode .task-list,
+.dark-mode .task-item,
+.dark-mode .task-header,
+.dark-mode .task-card,
+.dark-mode .task-body,
+.dark-mode .task-footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Add additional styles for specific components if needed */

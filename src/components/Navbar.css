@@ -49,7 +49,7 @@
     white-space: nowrap;
   }
   body.dark-mode {
-    background-color: #121212;
+    background-color: #201f1f;
     color: #ffffff;
   }
   
@@ -72,5 +72,6 @@
   
   .navbar-icon:hover,
   .navbar-search-input:focus {
-    color: #007bff;
+    color: #357937;
   }
+  

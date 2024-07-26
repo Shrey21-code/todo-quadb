@@ -1,140 +1,161 @@
 /* src/components/Sidebar.css */
 /* src/components/Sidebar.css */
 .sidebar {
-    width: 250px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    transition: transform 0.3s, background-color 0.3s, color 0.3s;
-    padding-top: 20px;
-    padding-left: 20px;
-    margin-top: 80px;
-    margin-left: 40px;
-    margin-right: 30px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
+  width: 250px;
+  background-color:#EEF6EF;
   
-  .sidebar.closed {
-    transform: translateX(-100%);
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  /* .profile img {
-    border-radius: 50%;
-  } */
-  
-  .profile .profile-info h2 {
-    font-size: 18px;
-    margin: 10px 0;
-    text-align: center;
+  padding: 20px;
+  /* transition: transform 0.3s, background-color 0.3s, color 0.3s;
+   */
+   transition: transform 0.3s ease;
+  padding-top: 20px;
+  padding-left: 20px;
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-right: 30px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  }
+.sidebar.closed {
+  transform: translateX(-500px);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* .profile img {
+  border-radius: 50%;
+} */
+
+.profile .profile-info h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 8px;
   
-  .menu ul {
-    list-style: none;
-    padding: 0;
+}
+
+.menu li svg {
+  margin-right: 10px;
+}
+
+.add-list {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.add-list svg {
+  margin-right: 10px;
+}
+
+.task-summary {
+  margin-top: 20px;
+}
+
+.task-summary h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.task-count {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.task-chart {
+  width: 150px;
+  height: 150px;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #efefef;
+  stroke-width: 5.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 4.8;
+  stroke-linecap: round;
+  stroke: #00acc1;
+  animation: progress 1s ease-out forwards;
+}
+.profile img {
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  transform: translateX(-50%);
+  top: -50px; /* Adjust this value to control how much of the image is outside the box */
+  /* Optional: Add a border to blend with the sidebar */
+}
+.profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50%; 
+  margin-top: 40px;/* Adjust to ensure text does not overlap the image */
+ 
+}
+.dark-mode .menu {
+background-color:#232323;
+color: #E2E2E2;
+}
+.dark-mode .add-list{
+  background-color:#232323;
+  color: #E2E2E2;
   }
-  
-  .menu li {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-  }
-  
-  .menu li svg {
-    margin-right: 10px;
-  }
-  
-  .add-list {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
-  .add-list svg {
-    margin-right: 10px;
-  }
-  
-  .task-summary {
-    margin-top: 20px;
-  }
-  
-  .task-summary h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .task-count {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .task-chart {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .circular-chart {
-    display: block;
-    margin: 10px auto;
-    max-width: 80%;
-  }
-  
-  .circle-bg {
-    fill: none;
-    stroke: #efefef;
-    stroke-width: 5.8;
-  }
-  
-  .circle {
-    fill: none;
-    stroke-width: 4.8;
-    stroke-linecap: round;
-    stroke: #00acc1;
-    animation: progress 1s ease-out forwards;
-  }
-  .profile img {
-    border-radius: 50%;
-    margin-right: 10px;
-    position: absolute;
-    left: 50%;
-    height: 100px;
-    width: 100px;
-    transform: translateX(-50%);
-    top: -50px; /* Adjust this value to control how much of the image is outside the box */
-    /* Optional: Add a border to blend with the sidebar */
-  }
-  .profile {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 20px;
-  }
-  
-  .profile-info {
-    display: flex;
-    flex-direction: column;
-    margin-left: 50%; 
-    margin-top: 40px;/* Adjust to ensure text does not overlap the image */
-   
-  }
-  .box {
-    background-color: white;
-    color: #333;
-    padding: 15px;
-    margin: 20px;
-    border-radius: 8px; /* Optional: Add rounded corners */
-  }
-  body.dark-mode .sidebar {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  @keyframes progress {
-    0% {
-      stroke-dasharray: 0, 100;
+  .dark-mode .task-summary{
+    background-color:#232323;
+    color: #E2E2E2;
     }
+.box {
+  background-color: white;
+  color: #333;
+  padding: 15px;
+  margin: 5px;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+body.dark-mode .sidebar {
+  background-color: #2C2C2C;
+  color: #fff;
+}
+.profile .profile-info {
+  margin-left: 60px;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0, 100;
   }
+}
