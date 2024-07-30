@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import TaskList from './components/TaskList';
 import TaskDetails from './components/TaskDetails';
+import { TaskProvider } from './context/TaskContext.jsx';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [currentView, setCurrentView] = useState('allTasks');
@@ -30,6 +31,7 @@ function App() {
   };
   
   return (
+    <TaskProvider>
     <div className="app">
       <Navbar toggleSidebar={toggleSidebar} />
        <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'} ${selectedTask ? 'details-open' : ''}`}>
@@ -40,6 +42,7 @@ function App() {
         
       </div>
     </div>
+    </TaskProvider>
   );
 }
 

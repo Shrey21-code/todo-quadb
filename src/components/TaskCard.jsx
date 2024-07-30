@@ -4,20 +4,23 @@ import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Card, CardContent, Typography, IconButton } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
-// import { useTasks } from '../context/TaskContext';
+import { useTasks } from '../context/TaskContext';
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const TaskCard = () => {
 //   const { tasks } = useTasks();
-
+   const { getCompletedTasks, getPendingTasks, getTotalTasks } = useTasks();
+   const completedTasks = getCompletedTasks();
+  const pendingTasks = getPendingTasks();
+  const totalTasks = getTotalTasks();
   const data = {
     labels: ['Pending', 'Done'],
     datasets: [
       {
         // data: [tasks.pending, tasks.done],
-        data: [7, 4],
+        data: [ pendingTasks, completedTasks],
         backgroundColor: ['#3F9142', '#064E3B'],
         hoverBackgroundColor: ['#3F9142', '#064E3B'],
         // borderWidth: 2,
@@ -37,8 +40,8 @@ const TaskCard = () => {
           </IconButton>
         </div>
         <Typography variant="h5" component="div" style={{ margin: '0 0' }}>
-          {/* {tasks.total} */}
-          9
+          {/* {tasks.total} */}{totalTasks}
+          {/* 9 */}
         </Typography>
         <hr/>
         <div style={{ height: '200px', position: 'relative' }}>

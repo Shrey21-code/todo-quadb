@@ -13,7 +13,7 @@ const TaskItem = ({ task, onToggle, onClick,onStarToggle }) => {
   // };
 
   return (
-    <div className="task-item">
+    <div className="task-item" onClick={onClick}>
     <Checkbox
       checked={task.completed}
       onChange={() => onToggle(task.id)}
