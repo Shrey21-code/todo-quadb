@@ -2,12 +2,13 @@
 import React from 'react';
 import { FaTasks, FaCalendarDay, FaStar, FaClipboardList, FaUser, FaPlus } from 'react-icons/fa';
 import './Sidebar.css';
-
+import profile from '../assets/profile.png';
+import TaskCard from './TaskCard';
 const Sidebar = ({ isOpen, onMenuClick }) => {
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <div className="profile">
-        <img src="https://sm.askmen.com/t/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.1200.jpg" alt="Profile" />
+        <img src={profile} alt="Profile" />
         <div className="profile-info">
           <h2>Hey, ABCD</h2>
         </div>
@@ -24,7 +25,7 @@ const Sidebar = ({ isOpen, onMenuClick }) => {
       <div className="add-list box">
         <FaPlus /> Add list
       </div>
-      <div className="task-summary box">
+      {/* <div className="task-summary box">
         <h3>Today Tasks</h3>
         <div className="task-count">11</div>
         <hr/>
@@ -45,6 +46,9 @@ const Sidebar = ({ isOpen, onMenuClick }) => {
             />
           </svg>
         </div>
+      </div> */}
+      <div >
+        <TaskCard />
       </div>
     </div>
   );

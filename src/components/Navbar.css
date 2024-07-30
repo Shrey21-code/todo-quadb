@@ -47,6 +47,7 @@
     font-weight: bold;
     margin-left: 10px;
     white-space: nowrap;
+    color: #3F9142;
   }
   body.dark-mode {
     background-color: #201f1f;

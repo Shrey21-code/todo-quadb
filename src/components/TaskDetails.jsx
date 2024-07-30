@@ -3,7 +3,7 @@ import { Checkbox, IconButton, TextField, List, ListItem, ListItemIcon, ListItem
 import { Star, StarBorder, Add, Notifications, CalendarToday, Repeat, Delete } from '@mui/icons-material';
 // import { LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'; // Corrected import statement
-
+import './TaskDetails.css';
 const TaskDetails = ({ task, onClose }) => {
     const [dueDate, setDueDate] = useState(null);
     const [isStarred, setIsStarred] = useState(false);
@@ -17,7 +17,7 @@ const TaskDetails = ({ task, onClose }) => {
     };
 
     return (
-        <div style={{ padding: 20, backgroundColor: '#eef3ec', width: 300, display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <div style={{ padding: 20, backgroundColor: '#eef3ec', width: 300, display: 'flex', flexDirection: 'column', height: '100%' }} className="taskd">
             <List style={{ flex: 1 }}>
                 <ListItem>
                     <ListItemIcon>

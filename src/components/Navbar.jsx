@@ -63,6 +63,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaSearch, FaSun, FaMoon, FaBell } from 'react-icons/fa';
 import './Navbar.css';
+import logo from '../assets/logomark.png';
 
 const Navbar = ({ toggleSidebar, onSearch }) => {
   const [darkMode, setDarkMode] = useState(false);
@@ -96,7 +97,7 @@ const Navbar = ({ toggleSidebar, onSearch }) => {
     <div className={`navbar ${darkMode ? 'dark' : ''}`}>
       <div className="navbar-left">
         <FaBars className="navbar-icon" onClick={toggleSidebar} />
-        <img src="https://via.placeholder.com/30" alt="Logo" className="navbar-logo" />
+        <img src={logo} alt="Logo" className="navbar-logo" />
         <span className="navbar-title">DoIt</span>
       </div>
       <div className="navbar-right">
