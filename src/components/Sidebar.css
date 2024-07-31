@@ -51,7 +51,10 @@
 .menu li svg {
   margin-right: 10px;
 }
-
+.dark-mode .menu li:hover {
+  background-color: #357937; /* green for dark mode */
+  color: #98E19B ;
+}
 .add-list {
   display: flex;
   align-items: center;
@@ -156,6 +159,20 @@ body.dark-mode .sidebar {
 }
 .profile .profile-info {
   margin-left: 60px;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 8px;
+  cursor: pointer; 
+  /* Makes the items clickable */
+}
+
+.menu li:hover {
+  background-color: #ddd; /* Change this to your desired hover background color */
+  color: #357937;
 }
 
 @keyframes progress {

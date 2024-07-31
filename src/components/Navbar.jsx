@@ -60,7 +60,73 @@
 
 // export default Navbar;
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+// import { FaBars, FaSearch, FaSun, FaMoon, FaBell } from 'react-icons/fa';
+// import './Navbar.css';
+// import logo from '../assets/logomark.png';
+
+// const Navbar = ({ toggleSidebar, onSearch }) => {
+//   const [darkMode, setDarkMode] = useState(false);
+//   const [isSearchOpen, setIsSearchOpen] = useState(false);
+//   const [searchQuery, setSearchQuery] = useState('');
+
+//   const toggleDarkMode = () => {
+//     setDarkMode(!darkMode);
+//     if (darkMode) {
+//       document.body.classList.remove('dark-mode');
+//     } else {
+//       document.body.classList.add('dark-mode');
+//     }
+//   };
+
+//   const handleSearchIconClick = () => {
+//     setIsSearchOpen(!isSearchOpen);
+//   };
+
+//   const handleSearchChange = (event) => {
+//     setSearchQuery(event.target.value);
+//   };
+
+//   const handleSearchSubmit = (event) => {
+//     event.preventDefault();
+//     onSearch(searchQuery);
+//     setIsSearchOpen(false);
+//   };
+
+//   return (
+//     <div className={`navbar ${darkMode ? 'dark' : ''}`}>
+//       <div className="navbar-left">
+//         <FaBars className="navbar-icon" onClick={toggleSidebar} />
+//         <img src={logo} alt="Logo" className="navbar-logo" />
+//         <span className="navbar-title">DoIt</span>
+//       </div>
+//       <div className="navbar-right">
+//         {isSearchOpen ? (
+//           <form onSubmit={handleSearchSubmit} className="navbar-search-form">
+//             <input
+//               type="text"
+//               className="navbar-search-input"
+//               value={searchQuery}
+//               onChange={handleSearchChange}
+//               placeholder="Search..."
+//             />
+//           </form>
+//         ) : (
+//           <FaSearch className="navbar-icon" onClick={handleSearchIconClick} />
+//         )}
+//         <FaBell className="navbar-icon" />
+//         {darkMode ? (
+//           <FaMoon className="navbar-icon" onClick={toggleDarkMode} />
+//         ) : (
+//           <FaSun className="navbar-icon" onClick={toggleDarkMode} />
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+import React, { useState, useEffect, useRef } from 'react';
 import { FaBars, FaSearch, FaSun, FaMoon, FaBell } from 'react-icons/fa';
 import './Navbar.css';
 import logo from '../assets/logomark.png';
@@ -69,6 +135,7 @@ const Navbar = ({ toggleSidebar, onSearch }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const searchInputRef = useRef(null);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -80,7 +147,7 @@ const Navbar = ({ toggleSidebar, onSearch }) => {
   };
 
   const handleSearchIconClick = () => {
-    setIsSearchOpen(!isSearchOpen);
+    setIsSearchOpen(true);
   };
 
   const handleSearchChange = (event) => {
@@ -93,6 +160,24 @@ const Navbar = ({ toggleSidebar, onSearch }) => {
     setIsSearchOpen(false);
   };
 
+  const handleClickOutside = (event) => {
+    if (searchInputRef.current && !searchInputRef.current.contains(event.target)) {
+      setIsSearchOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isSearchOpen]);
+
   return (
     <div className={`navbar ${darkMode ? 'dark' : ''}`}>
       <div className="navbar-left">
@@ -102,13 +187,14 @@ const Navbar = ({ toggleSidebar, onSearch }) => {
       </div>
       <div className="navbar-right">
         {isSearchOpen ? (
-          <form onSubmit={handleSearchSubmit} className="navbar-search-form">
+          <form onSubmit={handleSearchSubmit} className="navbar-search-form" ref={searchInputRef}>
             <input
               type="text"
               className="navbar-search-input"
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search..."
+              autoFocus
             />
           </form>
         ) : (
@@ -116,9 +202,9 @@ const Navbar = ({ toggleSidebar, onSearch }) => {
         )}
         <FaBell className="navbar-icon" />
         {darkMode ? (
-          <FaMoon className="navbar-icon" onClick={toggleDarkMode} />
-        ) : (
           <FaSun className="navbar-icon" onClick={toggleDarkMode} />
+        ) : (
+          <FaMoon className="navbar-icon" onClick={toggleDarkMode} />
         )}
       </div>
     </div>

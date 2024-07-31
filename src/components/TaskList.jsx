@@ -159,8 +159,9 @@ const TaskList = ({ onTaskClick }) => {
           <IconButton onClick={(e) => handlePopoverOpen(e, 'dueDate')}>
             <CalendarTodayIcon style={{ color: '#000000' }} />
           </IconButton>
-          <Button
+          <Button 
             variant="contained"
+            
             style={{
               backgroundColor: 'rgba(53, 121, 55, 0.16)',
               color: '#357937',

@@ -9,18 +9,20 @@ import { TaskProvider } from './context/TaskContext.jsx';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [currentView, setCurrentView] = useState('allTasks');
+  const [darkMode, setDarkMode] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
   const handleMenuClick = (view) => {
     setCurrentView(view);
   };
-  const [selectedTask, setSelectedTask] = useState(null);
+ 
 
   const handleTaskClick = (task) => {
     setSelectedTask(task);
   };
-  const [darkMode, setDarkMode] = useState(false);
+ 
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

@@ -40,6 +40,9 @@ margin: 0; */
 .task-item:hover {
   background-color: #f0f0f0;
 }
+.dark-mode .task-item:hover {
+  background-color: #2F3630;
+}
 .task-card {
   /* background-color: #D0FFD2; */
   background: linear-gradient(rgba(53, 121, 55, 0.1), rgba(208, 255, 210, 0.1));
@@ -55,8 +58,7 @@ margin: 0; */
   display: flex;
   /* justify-content: space-between; */
   margin-bottom: 16px;
-  color: #97F69BB5;
-  
+  color: #142E15;
 }
 
 .dropdown-arrow {
@@ -96,5 +98,24 @@ margin: 0; */
 .dark-mode .add-task-button{
   background-color: #357937E0;
   color: #CFCFCF;
-
 }
+.dark-mode .task-header{
+  background-color:#232323 ;
+  color: #97F69B;
+}
+.dark-mode .task-card  .task-body{
+  background-color:#2F3630;
+}
+.dark-mode .task-footer{
+  background-color:#2F3630;
+}
+.dark-mode .task-footer svg {
+  color: #ffffff;
+}
+.task-list.dark-mode .task-footer .MuiSvgIcon-root {
+  color: #ffffff;
+}
+.task-footer .MuiSvgIcon-root{
+  color: #000000;
+}
+
