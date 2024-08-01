@@ -85,16 +85,13 @@
 // export default TaskDetails;
 
 
-
 import React, { useState } from 'react';
 import { Checkbox, IconButton, TextField, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { Star, StarBorder, Add, Notifications, CalendarToday, Repeat, Delete } from '@mui/icons-material';
-// import { LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers';
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import './TaskDetails.css';
 import { useTasks } from '../context/TaskContext';
 
-const TaskDetails = ({ task, onClose }) => {
+const TaskDetails = ({ task, onClose, isDarkMode }) => {
   const { toggleStar, toggleComplete } = useTasks();
   const [dueDate, setDueDate] = useState(null);
   const [isStarred, setIsStarred] = useState(task.starred);
@@ -113,32 +110,47 @@ const TaskDetails = ({ task, onClose }) => {
   };
 
   return (
-    <div style={{ padding: 20, backgroundColor: '#eef3ec', width: 300, display: 'flex', flexDirection: 'column', height: '100%' }} className="taskd">
+    <div
+      style={{
+        padding: 20,
+        backgroundColor: isDarkMode ? 'grey' : '#eef3ec',
+        color: isDarkMode ? '#fff' : '#000',
+        width: 300,
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
+      }}
+      className="taskd"
+    >
       <List style={{ flex: 1 }}>
         <ListItem>
           <ListItemIcon>
-            <Checkbox checked={task.completed==='true'} onClick={handleCompleteClick} />
+            <Checkbox
+              checked={task.completed === 'true'}
+              onClick={handleCompleteClick}
+              style={{ color: isDarkMode ? '#fff' : '#000' }}
+            />
           </ListItemIcon>
-          <ListItemText primary={task.text}/>
+          <ListItemText primary={task.text} style={{ color: isDarkMode ? '#fff' : '#000' }} />
           <IconButton onClick={handleStarClick}>
-            {isStarred ? <Star style={{ color: '#fdd835' }} /> : <StarBorder />}
+            {isStarred ? <Star style={{ color: '#fdd835' }} /> : <StarBorder style={{ color: isDarkMode ? '#fff' : '#000' }} />}
           </IconButton>
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <Add />
+            <Add style={{ color: isDarkMode ? '#fff' : '#000' }} />
           </ListItemIcon>
-          <ListItemText primary="Add Step" />
+          <ListItemText primary="Add Step" style={{ color: isDarkMode ? '#fff' : '#000' }} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <Notifications />
+            <Notifications style={{ color: isDarkMode ? '#fff' : '#000' }} />
           </ListItemIcon>
-          <ListItemText primary="Set Reminder" />
+          <ListItemText primary="Set Reminder" style={{ color: isDarkMode ? '#fff' : '#000' }} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <CalendarToday />
+            <CalendarToday style={{ color: isDarkMode ? '#fff' : '#000' }} />
           </ListItemIcon>
           {/* Uncomment the following lines after installing and configuring date pickers
           <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -152,9 +164,9 @@ const TaskDetails = ({ task, onClose }) => {
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <Repeat />
+            <Repeat style={{ color: isDarkMode ? '#fff' : '#000' }} />
           </ListItemIcon>
-          <ListItemText primary="Repeat" />
+          <ListItemText primary="Repeat" style={{ color: isDarkMode ? '#fff' : '#000' }} />
         </ListItem>
         <ListItem>
           <TextField
@@ -163,14 +175,24 @@ const TaskDetails = ({ task, onClose }) => {
             label="Add Notes"
             multiline
             rows={2}
+            InputLabelProps={{ style: { color: isDarkMode ? '#fff' : '#000' } }}
+            InputProps={{ style: { color: isDarkMode ? '#fff' : '#000' } }}
           />
         </ListItem>
       </List>
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', marginTop: 'auto', borderTop: '1px solid #ccc' }}>
-        <button onClick={onClose} style={{ border: 'none', background: 'none', cursor: 'pointer' }}>X</button>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '10px 0',
+          marginTop: 'auto',
+          borderTop: '1px solid #ccc'
+        }}
+      >
+        <button onClick={onClose} style={{ border: 'none', background: 'none', cursor: 'pointer', color: isDarkMode ? '#fff' : '#000' }}>X</button>
         <span>Created Today</span>
         <IconButton>
-          <Delete />
+          <Delete style={{ color: isDarkMode ? '#fff' : '#000' }} />
         </IconButton>
       </div>
     </div>
